@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crimson Education | 수학 특화 입시 컨설팅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crimson: #8C1D2E;
+    --crimson-deep: #6E1523;
+    --ink: #10192B;
+    --ink-soft: #1B2740;
+    --paper: #F7F5F1;
+    --paper-dim: #EFEBE3;
+    --gold: #C9A660;
+    --charcoal: #2B2A28;
+    --charcoal-soft: #565248;
+    --line: rgba(16,25,43,0.12);
+    --line-on-dark: rgba(247,245,241,0.16);
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--paper);
+    color: var(--charcoal);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family: 'Noto Serif KR', serif;
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .en{
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  img, svg{ display:block; max-width:100%; }
+
+  .wrap{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- header ---------- */
+
+  header{
+    position: sticky;
+    top:0;
+    z-index: 50;
+    background: rgba(247,245,241,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .logo{
+    display:flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .logo .mark{
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .logo .mark span{ color: var(--crimson); }
+  .logo .sub{
+    font-size: 11px;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  .cta-btn{
+    display:inline-block;
+    background: var(--crimson);
+    color: var(--paper);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 2px;
+    border: 1px solid var(--crimson);
+    transition: background 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+  }
+  .cta-btn:hover{ background: var(--crimson-deep); }
+
+  .cta-ghost{
+    display:inline-block;
+    background: transparent;
+    color: var(--ink);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 2px;
+    border: 1px solid var(--ink);
+  }
+
+  nav.desktop-nav{ display:flex; gap:28px; font-size:14px; color: var(--charcoal-soft); }
+
+  /* ---------- hero ---------- */
+
+  .hero{
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0 0 0;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line-on-dark) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-on-dark) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: 0.5;
+    mask-image: radial-gradient(ellipse 90% 70% at 30% 20%, black 30%, transparent 80%);
+  }
+
+  .hero-inner{
+    position: relative;
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 70px;
+  }
+
+  .eyebrow-line{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    margin-bottom: 22px;
+  }
+  .eyebrow-line .rule{
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1{
+    color: var(--paper);
+    font-size: 46px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em{
+    font-style: normal;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .hero p.lede{
+    font-size: 17.5px;
+    font-weight: 600;
+    line-height: 1.55;
+    color: rgba(247,245,241,0.92);
+    max-width: 520px;
+    margin-bottom: 12px;
+  }
+
+  .hero p.lede-sub{
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(247,245,241,0.68);
+    max-width: 520px;
+    margin-bottom: 34px;
+  }
+
+  .hero-ctas{ display:flex; gap:14px; margin-bottom: 54px; }
+
+  .hero .cta-btn{ background: var(--crimson); border-color: var(--crimson); }
+  .hero .cta-ghost{ color: var(--paper); border-color: rgba(247,245,241,0.4); }
+  .hero .cta-ghost:hover{ border-color: var(--paper); }
+
+  .hero-note{
+    font-size: 13px;
+    color: rgba(247,245,241,0.5);
+  }
+
+  /* score trajectory visual */
+  .score-panel{
+    position: relative;
+    background: var(--ink-soft);
+    border: 1px solid var(--line-on-dark);
+    padding: 32px 30px 26px 30px;
+  }
+  .score-panel .score-label{
+    font-size: 12px;
+    color: rgba(247,245,241,0.55);
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+  }
+  .score-panel .score-title{
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    color: var(--paper);
+    margin-bottom: 22px;
+  }
+  .score-numbers{
+    display:flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+  .score-numbers .from{
+    font-family: 'Newsreader', serif;
+    font-size: 26px;
+    color: rgba(247,245,241,0.4);
+    text-decoration: line-through;
+    text-decoration-color: rgba(247,245,241,0.3);
+  }
+  .score-numbers .arrow{ color: var(--gold); font-size: 20px; }
+  .score-numbers .to{
+    font-family: 'Newsreader', serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .score-caption{
+    font-size: 13px;
+    color: rgba(247,245,241,0.55);
+    margin-bottom: 22px;
+  }
+
+  .traj-svg{ width: 100%; height: 96px; }
+
+  .hero-bottom-strip{
+    position: relative;
+    border-top: 1px solid var(--line-on-dark);
+    padding: 22px 0;
+  }
+  .strip-inner{
+    display:flex;
+    gap: 46px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: rgba(247,245,241,0.62);
+  }
+  .strip-inner strong{ color: var(--paper); font-weight: 600; }
+
+  /* ---------- section shell ---------- */
+
+  section{ padding: 96px 0; }
+  section.tight{ padding: 80px 0; }
+
+  .section-head{
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+  .section-head .kicker{
+    font-size: 13px;
+    color: var(--crimson);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+  .section-head h2{
+    font-size: 32px;
+  }
+  .section-head p{
+    margin-top: 16px;
+    color: var(--charcoal-soft);
+    font-size: 15.5px;
+  }
+
+  /* ---------- pain points ---------- */
+
+  .pain-list{
+    display:flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .pain-item{
+    display:grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .pain-item .q{
+    font-family: 'Newsreader', serif;
+    font-size: 30px;
+    color: var(--crimson);
+    font-style: italic;
+  }
+  .pain-item p{
+    font-size: 18px;
+    color: var(--ink);
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 500;
+  }
+  .pain-close{
+    margin-top: 36px;
+    font-size: 17px;
+    color: var(--charcoal-soft);
+  }
+  .pain-close strong{ color: var(--crimson); font-family: 'Noto Serif KR', serif; }
+
+  /* ---------- steps (how it works) ---------- */
+
+  .steps{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .step{
+    padding: 34px 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .step .step-no{
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display:block;
+  }
+  .step h3{
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+  .step p{
+    font-size: 14.5px;
+    color: var(--charcoal-soft);
+  }
+
+  /* ---------- philosophy (small cohort / trio of experts) ---------- */
+
+  .badge-light{
+    display:inline-block;
+    font-size: 12.5px;
+    color: var(--crimson);
+    font-weight: 600;
+    border: 1px solid rgba(140,29,46,0.3);
+    padding: 6px 14px;
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+  }
+
+  .trio{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    margin-bottom: 40px;
+  }
+  .trio-item{
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 30px 24px;
+    text-align: center;
+  }
+  .trio-item .role{
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .trio-item h3{
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .trio-item p{
+    font-size: 13.5px;
+    color: var(--charcoal-soft);
+  }
+  .trio-plus{
+    text-align:center;
+    color: var(--gold);
+    font-size: 20px;
+    font-family:'Newsreader', serif;
+  }
+
+  /* ---------- four pillars (why here) ---------- */
+
+  .pillars{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  .pillar{
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 28px 22px;
+  }
+  .pillar .tag{
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--crimson);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .pillar h3{
+    font-size: 16.5px;
+    margin-bottom: 10px;
+  }
+  .pillar p{
+    font-size: 13.5px;
+    color: var(--charcoal-soft);
+  }
+
+  /* ---------- results (scoreboard) ---------- */
+
+  .results-section{
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .results-section .section-head h2{ color: var(--paper); }
+  .results-section .section-head p{ color: rgba(247,245,241,0.65); }
+  .results-section .kicker{ color: var(--gold); }
+
+  .scoreboard{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line-on-dark);
+    border: 1px solid var(--line-on-dark);
+  }
+  .board-cell{
+    background: var(--ink);
+    padding: 34px 28px;
+  }
+  .board-cell .cat{
+    font-size: 12.5px;
+    color: rgba(247,245,241,0.55);
+    margin-bottom: 20px;
+  }
+  .board-line{
+    display:flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .board-line .from{
+    font-family: 'Newsreader', serif;
+    font-size: 20px;
+    color: rgba(247,245,241,0.4);
+  }
+  .board-line .arrow{ color: var(--gold); }
+  .board-line .to{
+    font-family: 'Newsreader', serif;
+    font-size: 30px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .board-cell .desc{
+    font-size: 13.5px;
+    color: rgba(247,245,241,0.6);
+    margin-top: 14px;
+  }
+  .results-footnote{
+    font-size: 12px;
+    color: rgba(247,245,241,0.4);
+    margin-top: 22px;
+    max-width: 620px;
+  }
+
+  /* ---------- track record ---------- */
+
+  .track-block{
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+  }
+  .track-tier{
+    margin-bottom: 30px;
+  }
+  .track-tier .tier-label{
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--crimson);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .track-names{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 14px 34px;
+  }
+  .track-names span{
+    font-family: 'Noto Serif KR', serif;
+    font-size: 19px;
+    color: var(--ink);
+  }
+  .track-names span small{
+    display:block;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--charcoal-soft);
+    margin-top: 2px;
+  }
+
+  /* ---------- recommended for ---------- */
+
+  .rec-list{
+    display:flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .rec-item{
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap: 30px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .rec-item:first-child{ border-top: 1px solid var(--line); }
+  .rec-item h3{
+    font-size: 17px;
+    color: var(--crimson);
+  }
+  .rec-item p{
+    font-size: 14.5px;
+    color: var(--charcoal-soft);
+  }
+
+  /* ---------- timeline ---------- */
+
+  .timeline{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+  .time-card{
+    background: var(--paper-dim);
+    border-left: 3px solid var(--crimson);
+    padding: 30px 28px;
+  }
+  .time-card .month{
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--crimson);
+    margin-bottom: 12px;
+  }
+  .time-card p{
+    font-size: 15px;
+    color: var(--charcoal);
+  }
+
+  /* ---------- final CTA ---------- */
+
+  .final-cta{
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: linear-gradient(var(--line-on-dark) 1px, transparent 1px), linear-gradient(90deg, var(--line-on-dark) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: 0.35;
+    mask-image: radial-gradient(ellipse 80% 70% at 70% 30%, black 20%, transparent 75%);
+  }
+  .final-cta-inner{
+    position: relative;
+    display:grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .final-cta .badge{
+    display:inline-block;
+    font-size: 12.5px;
+    color: var(--gold);
+    border: 1px solid rgba(201,166,96,0.4);
+    padding: 6px 14px;
+    margin-bottom: 22px;
+  }
+  .final-cta h2{
+    color: var(--paper);
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+  .final-cta p{
+    color: rgba(247,245,241,0.7);
+    font-size: 15.5px;
+    max-width: 460px;
+    margin-bottom: 30px;
+  }
+  .contact-card{
+    background: var(--ink-soft);
+    border: 1px solid var(--line-on-dark);
+    padding: 30px 28px;
+  }
+  .contact-card .row{
+    display:flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-on-dark);
+    font-size: 14.5px;
+  }
+  .contact-card .row:last-of-type{ border-bottom: none; }
+  .contact-card .row .label{ color: rgba(247,245,241,0.5); }
+  .contact-card .row .val{ color: var(--paper); font-weight: 500; }
+  .contact-card .cta-btn{
+    display:block;
+    text-align:center;
+    margin-top: 22px;
+  }
+
+  /* ---------- footer ---------- */
+
+  footer{
+    background: #0C1420;
+    color: rgba(247,245,241,0.45);
+    padding: 40px 0;
+    font-size: 13px;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 880px){
+    .wrap{ padding: 0 20px; }
+    .header-inner{ padding: 16px 20px; }
+    nav.desktop-nav{ display:none; }
+    .hero-inner{ grid-template-columns: 1fr; padding-top: 20px; }
+    .hero h1{ font-size: 32px; }
+    .hero-ctas{ flex-direction: column; }
+    .hero-ctas a{ text-align:center; }
+    .strip-inner{ gap: 20px; }
+    .steps{ grid-template-columns: 1fr; }
+    .pillars{ grid-template-columns: 1fr 1fr; }
+    .trio{ grid-template-columns: 1fr; }
+    .scoreboard{ grid-template-columns: 1fr; }
+    .rec-item{ grid-template-columns: 1fr; gap: 8px; }
+    .timeline{ grid-template-columns: 1fr; }
+    .final-cta-inner{ grid-template-columns: 1fr; }
+    .track-names{ gap: 10px 24px; }
+  }
+
+  @media (max-width: 560px){
+    .pillars{ grid-template-columns: 1fr; }
+    .pain-item{ grid-template-columns: 40px 1fr; }
+    section{ padding: 64px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="mark">Crimson<span>Ed</span>ucation</div>
+      <div class="sub">PREMIUM ACADEMIC CONSULTING</div>
+    </div>
+    <nav class="desktop-nav">
+      <a href="#philosophy">철학</a>
+      <a href="#results">실적</a>
+      <a href="#how">시스템</a>
+      <a href="#math">수학 특화반</a>
+      <a href="#recommended">추천 대상</a>
+    </nav>
+    <a href="mailto:crinsonedu11@gmail.com?subject=%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%AC%B4%EB%A3%8C%20%ED%95%99%EC%8A%B5%20%EC%BB%A8%EC%84%A4%ED%8C%85%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%8B%A0%EC%B2%AD%ED%95%A9%EB%8B%88%EB%8B%A4.%0A%0A%ED%95%99%EC%83%9D%20%EC%9D%B4%EB%A6%84%3A%20%0A%ED%95%99%EB%85%84%3A%20%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%20%0A%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9%3A%20" class="cta-btn">무료 상담 신청</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow-line"><span class="rule"></span>PREMIUM ACADEMIC CONSULTING</div>
+      <h1>수학, 이제<br><em>감이 아니라 실력</em>으로.</h1>
+      <p class="lede">과목은 분야별 전문 강사가, 학습 전략은 하버드 출신 컨설턴트가 함께합니다.</p>
+      <p class="lede-sub">각 과목은 해당 분야에 특화된 전문 강사가 깊이 있게 지도하고, 학생의 학업 목표와 장기적인 방향은 하버드 출신 컨설턴트가 함께 설계합니다. 전문적인 수업과 전략적인 로드맵이 하나의 교육 시스템으로 연결됩니다.</p>
+      <div class="hero-ctas">
+        <a href="mailto:crinsonedu11@gmail.com?subject=%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%AC%B4%EB%A3%8C%20%ED%95%99%EC%8A%B5%20%EC%BB%A8%EC%84%A4%ED%8C%85%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%8B%A0%EC%B2%AD%ED%95%A9%EB%8B%88%EB%8B%A4.%0A%0A%ED%95%99%EC%83%9D%20%EC%9D%B4%EB%A6%84%3A%20%0A%ED%95%99%EB%85%84%3A%20%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%20%0A%EB%AC%B8%EC%9D%98%20%EB%82%B4%EC%9A%A9%3A%20" class="cta-btn">무료 학습 컨설팅 신청</a>
+        <a href="#how" class="cta-ghost">시스템 살펴보기</a>
+      </div>
+    </div>
+
+    <div class="score-panel">
+      <div class="score-label">SAT · 약 5개월 집중 준비</div>
+      <div class="score-title">첫 응시부터 설계된 전략까지</div>
+      <div class="score-numbers">
+        <span class="from">1100점대</span>
+        <span class="arrow">→</span>
+        <span class="to">1500+</span>
+      </div>
+      <div class="score-caption">실제 지도 학생 사례 · 개인정보 보호를 위해 익명 처리</div>
+      <svg class="traj-svg" viewBox="0 0 320 96" fill="none">
+        <polyline points="0,80 60,74 110,68 150,52 190,40 230,24 280,14 320,8" stroke="#C9A660" stroke-width="2" fill="none"/>
+        <circle cx="0" cy="80" r="3.5" fill="rgba(247,245,241,0.5)"/>
+        <circle cx="320" cy="8" r="4" fill="#C9A660"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero-bottom-strip">
+    <div class="wrap strip-inner">
+      <div><strong>GPA 2점대 → 3.7+</strong> 명문대 합격</div>
+      <div><strong>내신 하위권 → GPA 4.0</strong> 국제학교 재학생</div>
+      <div><strong>SAT 1100점대 → 1500+</strong> 5개월 집중 준비</div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">CHECK YOURSELF</div>
+      <h2>혹시, 이런 고민이신가요.</h2>
+    </div>
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="q">Q.</div>
+        <p>수학 점수가 좀처럼 오르지 않나요?</p>
+      </div>
+      <div class="pain-item">
+        <div class="q">Q.</div>
+        <p>SAT 수학에서 늘 몇 문제씩 막히나요?</p>
+      </div>
+      <div class="pain-item">
+        <div class="q">Q.</div>
+        <p>아이가 수학에 흥미도, 자신감도 없어 보이나요?</p>
+      </div>
+    </div>
+    <p class="pain-close">그렇다면 — <strong>여기서 끝냅니다.</strong> 체계적인 로드맵과 매주 진화하는 자체 문제로 다시 시작합니다.</p>
+  </div>
+</section>
+
+<section id="philosophy" class="tight" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="badge-light">소수 인원 한정 케어</div>
+      <div class="kicker">OUR PHILOSOPHY</div>
+      <h2>학생 한 명, 한 명을 이해하고 계획합니다.</h2>
+      <p>많은 인원을 받지 않습니다. 소수 정예로만 운영하며, 학생 개개인의 성향과 학업 목표를 깊이 이해한 뒤 계획을 세웁니다.</p>
+    </div>
+    <div class="trio">
+      <div class="trio-item">
+        <div class="role">PARENT</div>
+        <h3>부모님 — 아이 전문가</h3>
+        <p>누구보다 아이를 가장 잘 아는 전문가입니다.</p>
+      </div>
+      <div class="trio-item">
+        <div class="role">INSTRUCTOR</div>
+        <h3>강사 — 과목 전문가</h3>
+        <p>각 과목을 깊이 있게 지도하는 전문가입니다.</p>
+      </div>
+      <div class="trio-item">
+        <div class="role">CONSULTANT</div>
+        <h3>컨설턴트 — 로드맵 전문가</h3>
+        <p>대입까지의 방향을 설계하는 전문가입니다.</p>
+      </div>
+    </div>
+    <p class="pain-close">교육은 관심으로 이루어진 공동의 결과물입니다. <strong>부모님은 아이의 전문가, 강사는 과목 전문가, 컨설턴트는 로드맵 전문가.</strong> 관심 많은 전문가가 함께합니다.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">HOW IT WORKS</div>
+      <h2>저희가 다른 이유</h2>
+      <p>막연한 과외가 아닙니다. 진단부터 설계까지, 시스템으로 결과를 만듭니다.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-no">01 — Divide</span>
+        <h3>역할을 나눕니다</h3>
+        <p>과목은 특화 강사가 가르치고, 로드맵은 하버드 출신 컨설턴트가 설계합니다. 강사 개인의 역량이 아니라 시스템으로 결과를 만듭니다.</p>
+      </div>
+      <div class="step">
+        <span class="step-no">02 — Diagnose</span>
+        <h3>현재를 진단합니다</h3>
+        <p>지금 성적이 낮아도 괜찮습니다. 학생의 현재 위치를 정확히 진단하고, 목표까지의 거리를 과목별로 분석합니다.</p>
+      </div>
+      <div class="step">
+        <span class="step-no">03 — Design</span>
+        <h3>로드맵을 설계합니다</h3>
+        <p>어디에서 시작해 어디까지 갈 수 있는지, 눈에 보이는 학습 로드맵으로 보여드립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="math" class="tight" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">MATH INTENSIVE PROGRAM</div>
+      <h2>왜, 여기서는 수학이 오를까요.</h2>
+      <p>한 사람이 다 하지 않습니다. 분야별 전문가가 각자의 자리에서 아이를 책임집니다.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="tag">ROADMAP</div>
+        <h3>하버드 출신 컨설턴트의 학습 로드맵</h3>
+        <p>지금 무엇을, 언제까지, 어떻게 — 진학까지 내다본 설계를 전문 컨설턴트가 직접 잡습니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="tag">INSTRUCTION</div>
+        <h3>10년+ 수학 전문 강사</h3>
+        <p>뉴저지 대형 입시학원 출신, 현장에서 검증된 수학 전담 강사가 오직 지도에만 집중합니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="tag">PROBLEM BANK</div>
+        <h3>매주 진화하는 자체 문제 은행</h3>
+        <p>시중 문제집엔 없는, 강사진이 직접 설계하고 매주 갱신하는 자체 문제 데이터베이스로 훈련합니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="tag">CONSULTING</div>
+        <h3>단일 창구 전담 컨설팅</h3>
+        <p>학부모 상담은 전담 컨설턴트가 책임집니다. 강사는 수업에, 소통은 전문가에게 — 역할이 명확합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results" class="results-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">REAL RESULTS</div>
+      <h2>숫자로 증명하는 변화</h2>
+      <p>과목 특화 강사 × 하버드 출신 로드맵 설계</p>
+    </div>
+    <div class="scoreboard">
+      <div class="board-cell">
+        <div class="cat">국제학교 9학년 · GPA 향상</div>
+        <div class="board-line">
+          <span class="from">3점대</span><span class="arrow">→</span><span class="to">4.0</span>
+        </div>
+        <div class="desc">9학년 3점대에서 시작해 최상위권까지 끌어올린 사례</div>
+      </div>
+      <div class="board-cell">
+        <div class="cat">내신 부진 학생 · 명문대 진학</div>
+        <div class="board-line">
+          <span class="from">2점대</span><span class="arrow">→</span><span class="to">3.7+</span>
+        </div>
+        <div class="desc">낮은 내신에서 주요 과목을 반등시켜 명문대 합격까지</div>
+      </div>
+      <div class="board-cell">
+        <div class="cat">SAT · 집중 준비</div>
+        <div class="board-line">
+          <span class="from">1100점대</span><span class="arrow">→</span><span class="to">1530+</span>
+        </div>
+        <div class="desc">첫 모의고사에서 설계된 전략으로 대폭 향상</div>
+      </div>
+    </div>
+    <p class="results-footnote">* 위 사례는 실제 지도 학생의 결과이며, 개인정보 보호를 위해 이름·학교·지역 등 식별 정보는 익명 처리했습니다. 개별 학생의 성취는 시작 시점, 학습 태도, 준비 기간에 따라 달라질 수 있습니다.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">ADMISSIONS TRACK RECORD</div>
+      <h2>지도 학생 합격 대학</h2>
+    </div>
+    <div class="track-block">
+      <div class="track-tier">
+        <div class="tier-label">TOP TIER</div>
+        <div class="track-names">
+          <span>하버드<small>Harvard</small></span>
+          <span>예일<small>Yale</small></span>
+          <span>프린스턴<small>Princeton</small></span>
+          <span>스탠퍼드<small>Stanford</small></span>
+        </div>
+      </div>
+      <div class="track-tier">
+        <div class="tier-label">TOP UNIVERSITIES & MORE</div>
+        <div class="track-names">
+          <span>컬럼비아<small>Columbia</small></span>
+          <span>코넬<small>Cornell</small></span>
+          <span>밴더빌트<small>Vanderbilt</small></span>
+          <span>USC<small>USC</small></span>
+          <span>NYU<small>New York U.</small></span>
+          <span>보스턴 칼리지<small>Boston College</small></span>
+          <span>보스턴 대학교<small>Boston U.</small></span>
+          <span>UC 계열<small>UC System</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recommended" class="tight" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">FOR WHOM</div>
+      <h2>이런 학생에게 강력히 추천합니다</h2>
+    </div>
+    <div class="rec-list">
+      <div class="rec-item">
+        <h3>수학 경시 준비생</h3>
+        <p>수학 경시를 준비하는 8학년 — AMC 8에서 시작해 AMC 10·AIME까지, 지금이 진입 최적기입니다.</p>
+      </div>
+      <div class="rec-item">
+        <h3>내신 상승이 목표인 학생</h3>
+        <p>수학 성적을 확실히 올리고 싶은 학생 — 흥미가 없던 아이도 체계로 다시 잡아드립니다.</p>
+      </div>
+      <div class="rec-item">
+        <h3>SAT 고득점이 목표인 학생</h3>
+        <p>SAT 수학 고득점이 목표인 학생 — 막히는 유형을 데이터로 잡아 점수로 증명합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">TIMELINE</div>
+      <h2>기간에 따라, 이렇게 달라집니다</h2>
+    </div>
+    <div class="timeline">
+      <div class="time-card">
+        <div class="month">3개월</div>
+        <p>수학이 재미있어지고, 스스로 문제를 파고드는 자신감을 만듭니다.</p>
+      </div>
+      <div class="time-card">
+        <div class="month">6개월</div>
+        <p>학교 수학 상위권, SAT 수학 고득점을 목표로 끌어올립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apply" class="final-cta">
+  <div class="wrap final-cta-inner">
+    <div>
+      <div class="badge">선착순 10명 한정</div>
+      <h2>무료 학습 컨설팅 신청</h2>
+      <p>학생의 현재 상태 진단 + 과목별 전략 + 맞춤 로드맵 설계까지, 지금 신청하시면 무료로 받아보실 수 있습니다.</p>
+    </div>
+    <div class="contact-card">
+      <div class="row"><span class="label">이메일</span><span class="val">crinsonedu11@gmail.com</span></div>
+      <a href="mailto:crinsonedu11@gmail.com" class="cta-btn">상담 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>Crimson Education · Premium Academic Consulting</div>
+    <div>crinsonedu11@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
